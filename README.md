@@ -60,12 +60,12 @@ Install the CLI globally using npm:
 npm install -g imdb-play
 ```
 
----
 
 After installation run it from anywhere:
 ```bash
 imdb-play
 ```
+---
 
 ### Local Development
 
