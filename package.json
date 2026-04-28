@@ -8,7 +8,8 @@
     "imdb-play": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:sea": "node scripts/build-sea.mjs"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
   "dependencies": {
     "@inquirer/prompts": "^8.4.2",
     "open": "^11.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }

@@ -3,6 +3,7 @@
 import { input } from "@inquirer/prompts";
 import open from "open";
 
+async function main() {
 const searchTerm = await input({
   message: "Enter movie or show name:",
   validate(value) {
@@ -49,6 +50,8 @@ console.log(newUrl);
 
   console.log(`Opening: ${firstResult.l}`);
   console.log(titleUrl);
-} catch (error) {
+ } catch (error) {
   console.log("Something went wrong:", error.message);
+   }
 }
+main();

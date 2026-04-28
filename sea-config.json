@@ -1,0 +1,5 @@
+{
+  "main": "dist/bundle.cjs",
+  "output": "dist/imdb-play",
+  "disableExperimentalSEAWarning": true
+}
