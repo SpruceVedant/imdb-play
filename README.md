@@ -54,6 +54,28 @@ https://www.imdb.com/title/tt0816692/
 
 ## Installation
 
+You can install this CLI globally using npm:
+
+```bash
+npm install -g imdb-play
+
+After installation, run it from anywhere in your terminal:
+
+```bash
+imdb-play
+
+The CLI will ask you to enter a movie or TV show name.
+```bash
+? Enter movie or show name:
+
+Run Without Installing
+
+You can also run the CLI directly using npx:
+```bash
+npx imdb-play
+
+### Local Development
+
 Clone the project:
 
 ```bash
