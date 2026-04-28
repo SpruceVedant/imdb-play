@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "imdb-play": "index.js"
+    "imdb-play": "./index.js"
   },
   "files": [
     "index.js",
