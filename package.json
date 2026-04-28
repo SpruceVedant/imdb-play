@@ -1,17 +1,28 @@
 {
   "name": "imdb-play",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple & fast CLI tool to play IMDb titles from the terminal on the browser",
   "main": "index.js",
   "type": "module",
   "bin": {
     "imdb-play": "./index.js"
   },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:sea": "node scripts/build-sea.mjs"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "imdb",
+    "movies",
+    "terminal",
+    "watch"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
