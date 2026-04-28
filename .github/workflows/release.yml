@@ -1,0 +1,67 @@
+name: Build and Release Binaries
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            artifact_name: imdb-play-macos
+            binary_name: imdb-play
+
+          - os: ubuntu-latest
+            artifact_name: imdb-play-linux
+            binary_name: imdb-play
+
+          - os: windows-latest
+            artifact_name: imdb-play-windows
+            binary_name: imdb-play.exe
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build binary
+        run: npm run build:sea
+
+      - name: Sign macOS binary
+        if: runner.os == 'macOS'
+        run: |
+          chmod +x ./dist/imdb-play
+          codesign --sign - --force --deep ./dist/imdb-play
+
+      - name: Package binary macOS/Linux
+        if: runner.os != 'Windows'
+        run: |
+          cd dist
+          zip ${{ matrix.artifact_name }}.zip ${{ matrix.binary_name }}
+
+      - name: Package binary Windows
+        if: runner.os == 'Windows'
+        run: |
+          cd dist
+          Compress-Archive -Path ${{ matrix.binary_name }} -DestinationPath ${{ matrix.artifact_name }}.zip
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ matrix.artifact_name }}.zip
