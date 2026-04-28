@@ -1,4 +1,4 @@
-# Movie CLI
+# Imdb-play CLI
 
 A simple and fast command-line tool that lets you play a movie or TV show that is available in Imdb from your terminal directly in your browser and stream it.
 
